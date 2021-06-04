@@ -1,0 +1,121 @@
+.fancy label {
+  display: inline-flex;
+  align-items: baseline;
+
+  input[type=checkbox],
+  input[type=radio] {
+    position: relative;
+    appearance: none;
+    font-size: inherit;
+    width: 1em;
+    margin: 0;
+    color: inherit;
+    outline: none;
+    font-family: 'Font Awesome 5 Pro';
+    transition: 300ms ease-out;
+
+    &::after {
+      content: '\f111'; // circle
+      display: inline-block;
+      text-align: center;
+      width: 1em;
+    }
+
+    &:checked::after {
+      font-weight: 900;
+    }
+    &:active {
+      transform: scale(.6);
+    }
+
+    + span {
+      margin-left: .35em;
+    }
+  }
+  
+  
+
+
+
+
+
+
+
+
+/* demo layout – not relevant to the fanciness */
+:root {
+  --demo-width: 30;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-size: calc(1vmax + .5em);
+  line-height: 1.4;
+  font-family: sans-serif;
+  display: flex;
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 0em;
+
+    section {
+      flex: 1;
+      padding: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      + section {
+        flex: none;
+        padding: 1em;
+        margin: 2em;
+        background: #1fc2f5;
+        color: #fff;
+        cursor: pointer;
+        transition: font-size 100ms ease-out;
+        border-radius: .5em;
+      }
+    }
+  }
+}
+
+.box {
+  position: relative;
+  width: calc(var(--demo-width) * 1%);
+  border: 1px dashed #ccc;
+  padding: 1em;
+  margin: -.5em;
+  border-radius: .3em;
+  &::after {
+    font-size: .8em;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px dashed #ccc;
+    padding: 0 .65em;
+    border-radius: 1em;
+    counter-reset: dw var(--demo-width);
+    content: counter(dw) "%";
+  }
+}
+
+h3 {
+  margin: 0 0 .5em 0;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+hr {
+  border: 1px dashed #ccc;
+  height: 0;
+  margin: 1em 0;
+}
+
